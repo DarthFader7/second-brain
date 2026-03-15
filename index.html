@@ -366,8 +366,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   else { showLanding(); }
 
   let booted = !!session;
-  sb.auth.onAuthStateChange(async (event, session) => {
-    if (event === 'SIGNED_IN' && session && !booted) { booted = true; await bootApp(session.user); }
+  sb.auth.onAuthStateChange(async (event, session) => {   let booted = !!session;
+      if (event === 'SIGNED_IN' && session && !booted) { booted = true; await bootApp
     if (event === 'SIGNED_OUT') { booted = false; showLanding(); }
   });
 
