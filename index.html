@@ -365,9 +365,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (session) { await bootApp(session.user); }
   else { showLanding(); }
 
+  let booted = !!session;
   sb.auth.onAuthStateChange(async (event, session) => {
-    if (event === 'SIGNED_IN' && session) { await bootApp(session.user); }
-    if (event === 'SIGNED_OUT') { showLanding(); }
+    if (event === 'SIGNED_IN' && session && !booted) { booted = true; await bootApp(session.user); }
+    if (event === 'SIGNED_OUT') { booted = false; showLanding(); }
   });
 
   document.getElementById('addurl').addEventListener('keydown', e => {
