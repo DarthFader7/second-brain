@@ -709,7 +709,7 @@ function openDetail(it){
     +'<div class="dsec">Summary</div><div class="dsum">'+esc(it.summary||'No summary.')+'</div>'
     +(tags?'<div class="dsec">Tags</div><div class="dtags">'+tags+'</div>':'')
     +'<div class="dsec">Source</div><a class="dlink" href="'+esc(it.url)+'" target="_blank" rel="noopener">&#8599; '+esc(it.url)+'</a>'
-    +'<div class="dact"><a href="'+esc(it.url)+'" target="_blank" rel="noopener" class="btn bp" style="text-decoration:none">&#8599; Open Link</a><button class="btn brb" onclick="delItem(\''+it.id+'\')">Delete</button></div>';
+    +'<div class="dact"><a href="'+esc(it.url)+'" target="_blank" rel="noopener" class="btn bp" style="text-decoration:none">&#8599; Open Link</a><button class="btn brb" onclick="delItem(&apos;"+it.id+"&apos;)">Delete</button></div>';
   document.getElementById('dov').classList.add('open');
   document.getElementById('dpanel').classList.add('open');
 }
